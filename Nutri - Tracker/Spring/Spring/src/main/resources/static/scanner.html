@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barcode Scanner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Barcode Scanner</h1>
+  <button id="back-button">Home</button>
+</header>
+
+<main>
+  <div id="scanner-container">
+    <video id="scanner-preview"></video>
+  </div>
+</main>
+
+<footer>
+  <p>© 2024 Nutri-Tracker</p>
+</footer>
+
+<script src="https://unpkg.com/@zxing/library@latest"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const backButton = document.getElementById('back-button');
+      const scannerPreview = document.getElementById('scanner-preview');
+      const codeReader = new ZXing.BrowserMultiFormatReader();
+
+      backButton.addEventListener('click', () => {
+          window.location.href = 'index.html'; // Redirect to the home page
+      });
+
+      function startScanning() {
+          codeReader.listVideoInputDevices()
+              .then(videoInputDevices => {
+                  if (videoInputDevices.length > 0) {
+                      const firstDeviceId = videoInputDevices[0].deviceId;
+                      codeReader.decodeOnceFromVideoDevice(firstDeviceId, 'scanner-preview')
+                          .then(result => {
+                              const barcode = result.text;
+                              window.location.href = `/details.html?barcode=${barcode}`;
+                          })
+                          .catch(err => {
+                              console.error('Scan Error:', err);
+                              alert('Error: ' + err.message);
+                          });
+                  } else {
+                      console.error('No video input devices found');
+                      alert('No video input devices found');
+                  }
+              })
+              .catch(err => {
+                  console.error('Error accessing video devices:', err);
+                  alert('Error accessing video devices: ' + err.message);
+              });
+      }
+
+      startScanning(); // Start scanning when the page loads
+  });
+</script>
+</body>
+</html>

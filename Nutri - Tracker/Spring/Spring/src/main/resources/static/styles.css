@@ -1,0 +1,145 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F1F3C2;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(to bottom,
+        #4CAF50 0%,        /* Dark green start */
+        #66bb6a 30%,       /* Medium green, blending in */
+        #9ccc65 60%,       /* Light green, further blending */
+        #c5e1a5 90%,       /* Very light green */
+        #e8f5e9 100%       /* Fading into white */
+	);
+    color: white;
+    padding: 20px 10%;
+    text-align: center;
+    box-shadow: 0 4px 8px(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px; /* Spacing between letters */
+}
+
+#search-bar {
+    width: 60%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    outline: none;
+}
+
+#scanner-button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 1rem;
+    background-color: white;
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#scanner-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#back-button:hover {
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+}
+
+main {
+    flex: 1; /* This makes the main content area take up the available space */
+    padding: 20px 10%;
+}
+
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Style for individual product items */
+.product-item {
+    background-color: white; /* Background color of the box */
+    border: 1px solid #ddd; /* Border around the box */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Space inside the box */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for 3D effect */
+    text-align: center; /* Center the text */
+    transition: box-shadow 0.3s; /* Smooth transition for shadow on hover */
+}
+
+/* Add hover effect */
+.product-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+#Health-message {
+    font-size: 2rem;
+    color: rgba(233, 186, 59, 0.888);
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    background-color: #F1F3C2;
+    padding: 10;
+    border-radius: 0;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+video {
+    border: 1px solid black;
+    width: 95%;
+    max-width: 270px; /* Adjust the maximum width as needed */
+    height: auto;
+    margin-top: 2rem;
+    border-radius: 0.5rem;
+}
+
+/* Center the scanner container */
+#scanner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh; /* Full height of the viewport */
+    margin: 0;
+    padding: 0;
+}
+
+/* Set video dimensions and ensure it's centered */
+#scanner-preview {
+    width: 60%;  /* Adjust as needed */
+    max-width: 350px;
+    height: auto; /* Maintain aspect ratio */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: Adds a shadow for better visibility */
+}
